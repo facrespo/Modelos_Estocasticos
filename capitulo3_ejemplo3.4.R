@@ -17,8 +17,8 @@ for (k in 1:K){
      print((F1),include.rownames = FALSE, include.colnames = FALSE);
    }
    else{
-     Q=matrix(0,4,4);
-     F=matrix(0,4,4);
+     Q=matrix(0,r,r);
+     F=matrix(0,r,r);
      for(i in 1:r){
        Q=P;
        Q[,i]=0;

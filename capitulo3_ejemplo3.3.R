@@ -3,7 +3,7 @@ library(xtable);
 
 str_eval=function(x) {return(eval(parse(text=x)))};
 
-P =t(matrix(c(0.5,0.5,0,0,0.25,0.25,0.5,0,1/6,1/6,1/6,1/2,0,0,0,1), nrow=4, ncol=4));
+P =t(matrix(c(0.5,0.5,0,0,0.25,0.25,0.5,0,1/6,1/6,1/6,0.5,0,0,0,1), nrow=4, ncol=4));
 
 test.svd=svd(P); 
 test.svd;
