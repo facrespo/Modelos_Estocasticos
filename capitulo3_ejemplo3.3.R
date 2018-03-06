@@ -37,3 +37,19 @@ for(i in 1:r2){
   eval(expr);
 }
 
+run <- function(i, P, n) {
+  res <- integer(n)
+  for (t in seq_len(n))
+    res[[t]] <- i <- sample(nrow(P), 1, pr=P[i,])
+  res
+};
+
+samples <- run(1, P, 30);
+samples1 <- run(1, P, 30);
+samples2 <- run(1, P, 30);
+samples3 <- run(1, P, 30);
+plot(samples, type="s", xlab="Etapas", ylab="Estados", las=1);
+lines(samples1,type="s",lty=2,lwd=1);
+lines(samples2,type="s",lty=2,lwd=2);
+lines(samples3,type="s",lty=3,lwd=1);
+legend(22, 2, c("simulación 1","simulación 2","simulación 3","simulación 4"), cex=0.8, lty=c(1,2,2,3));

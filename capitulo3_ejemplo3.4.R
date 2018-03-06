@@ -33,3 +33,33 @@ for (k in 1:K){
    }
   }
 
+#iterate.P <- function(x, P, n) {
+#  res <- matrix(NA, n+1, length(x))
+#  res[1,] <- x
+#  for (i in seq_len(n))
+#    res[i+1,] <- x <- x %*% P
+#  res
+#}
+
+
+#y1 <- iterate.P(c(1, 0, 0, 0), P, K);
+#y2 <- iterate.P(c(0, 1, 0, 0), P, K);
+#y3 <- iterate.P(c(0, 0, 1, 0), P, K);
+#y4 <- iterate.P(c(0, 0, 0, 1), P, K);
+
+
+#matplot(0:K, y1, type="l", lty=1, xlab="Etapas", ylab="Probabilidad");
+#matlines(0:K, y2, lty=2);
+#matlines(0:K, y3, lty=3);
+#matlines(0:K, y4, lty=4);
+#legend(10, 1, c("simulación 1","simulación 2","simulación 3","simulación 4"), cex=0.8, col=plot_colors, lty=1:4);
+
+run <- function(i, P, n) {
+  res <- integer(n)
+  for (t in seq_len(n))
+    res[[t]] <- i <- sample(nrow(P), 1, pr=P[i,])
+  res
+};
+
+samples <- run(1, P, 50);
+plot(samples, type="s", xlab="Etapas", ylab="Estados", las=1);

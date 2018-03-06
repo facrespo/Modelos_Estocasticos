@@ -64,7 +64,7 @@ for (k in 2:K){
      #eval(expr);
    }
   }
-
+}
 
 xtmp=(xtable(f[,17:24]));
 digits(xtmp)=c(7);
@@ -98,3 +98,19 @@ print(xtmp, include.colnames = FALSE, include.rownames = FALSE);
 
 plot(x=(1:23),vtmp,type = "l",xlab="etapa", ylab="Probabilidad",cex.lab=1.5,cex.main=2.0);
 
+iterate.P <- function(x, P, n) {
+  res <- matrix(NA, n+1, length(x))
+  res[1,] <- x
+  for (i in seq_len(n))
+    res[i+1,] <- x <- x %*% P
+  res
+}
+
+
+y1 <- iterate.P(c(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), P, K);
+y2 <- iterate.P(c(0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0), P, K);
+
+
+
+matplot(0:K, y1, type="l", lty=1, xlab="Step", ylab="y", las=1);
+matlines(0:K, y2, lty=2);
