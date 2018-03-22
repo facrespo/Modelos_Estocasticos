@@ -93,10 +93,10 @@ for (i in 1:(K/2)){
 }
 
 xtmp=(xtable(vtmp2));
-digits(xtmp) <- c(0,0,7,0,7);
+digits(xtmp) <- c(0,0,9,0,9);
 print(xtmp, include.colnames = FALSE, include.rownames = FALSE);
 
-plot(x=(1:23),vtmp,type = "l",xlab="etapa", ylab="Probabilidad",cex.lab=1.5,cex.main=2.0);
+plot(x=(10:23),vtmp[10:23],type = "l",xlab="etapa", ylab="Probabilidad",cex.lab=1.5,cex.main=2.0);
 
 iterate.P <- function(x, P, n) {
   res <- matrix(NA, n+1, length(x))
